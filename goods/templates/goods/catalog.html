@@ -1,0 +1,109 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{%block nav-bar%}
+<a class="nav-link" aria-current="page" href="{% url "main:index" %}">Plumber's goods</a>
+<a class="nav-link active" href="{% url "goods:index" %}">Каталог</a>
+<a class="nav-link" href="{%url 'cart:cart'%}">Корзина</a>
+<a class="nav-link" href="{% url "main:about" %}">Информация</a>
+{% comment %} <a class="nav-link" href="login.html">Войти</a>
+<a class="nav-link" href="my_profile.html">Мой профиль</a> {% endcomment %}
+{%endblock%}
+{%block main_content%}
+<div class="row">
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <a href="{% url "goods:catalog_category" %}"><img src="/static/deps/images/600/air.jpg"
+                    class="card-img-top" alt="ventilaition system"></a>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url "goods:catalog_category" %}">Вентиляция и кондиционеры</a></h5>
+                <p class="card-text"><a href="{% url "goods:catalog_category" %}">
+                        Товары для вентиляции и Кондиционирования
+                    </a></p>
+                <a href="{% url "goods:catalog_category" %}" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/bathroom.jpg" class="card-img-top" alt="Для ванных комнат">
+            <div class="card-body">
+                <h5 class="card-title">Все для ванной</h5>
+                <p class="card-text">Товары для ванной комнаты.</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/heating.jpg" class="card-img-top" alt="Heating system">
+            <div class="card-body">
+                <h5 class="card-title">Отопление</h5>
+                <p class="card-text">Все для водяного отопления.</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/materials.jpg" class="card-img-top" alt="Materisals">
+            <div class="card-body">
+                <h5 class="card-title">Строительные материлы</h5>
+                <p class="card-text">Дополнительные строительные материалы.</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/water.jpg" class="card-img-top" alt="Water supply">
+            <div class="card-body">
+                <h5 class="card-title">Водоснабжение</h5>
+                <p class="card-text">Все для систем водоснабжения</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/tools.jpg" class="card-img-top" alt="Tools for plumber">
+            <div class="card-body">
+                <h5 class="card-title">Инструменты</h5>
+                <p class="card-text">Сантехнические инструменты</p>
+                <a href="#" class="btn btn-primary">Купить</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/gazprom.jpg" class="card-img-top" alt="Eberything for gaz">
+            <div class="card-body">
+                <h5 class="card-title">Газоснабжение</h5>
+                <p class="card-text">Фитинги и трубы для газоснабжения</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/ninja_turtles.jpg" class="card-img-top" alt="sewerage">
+            <div class="card-body">
+                <h5 class="card-title">Канализация</h5>
+                <p class="card-text">Все для систем канализации и водоотведения</p>
+                <a href="#" class="btn btn-primary">Купить</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card">
+            <img src="/static/deps/images/600/cooling.jpg" class="card-img-top" alt="cooling">
+            <div class="card-body">
+                <h5 class="card-title">Кондиционирование</h5>
+                <p class="card-text">Все для систем кондиционирования дома.</p>
+                <a href="#" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+{% load static %}
+{%block nav-bar%}
+                        <a class="nav-link" aria-current="page" href="{% url "main:index" %}">Plumber's goods</a>
+                        <a class="nav-link active" href="{%url "goods:catalog_category"%}">Каталог</a>
+                        <a class="nav-link" href="{%url 'cart:cart'%}">Корзина</a>
+                        <a class="nav-link" href="{% url "main:about" %}">Информация</a>
+                        {% comment %} <a class="nav-link" href="login.html">Войти</a>
+                        <a class="nav-link" href="my_profile.html">Мой профиль</a> {% endcomment %}
+{%endblock%}
+{%block main_content%}
+<div class="row">
+  <div class="col-md-6">
+    <div class="card product-card">
+      {%if product.image%}<img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">{%else%}<img src="{% static "deps/images/goods/noImages.png" %}" class="card-img-top" alt="{{product.name}}">{%endif%}
+      <div class="card-body">
+        <h2 class="card-title">{{product.name}}</h2>
+        <p class="card-text">{{product.descriprion|safe}}</p>
+        <div class="product-details">
+          <p class="product-id">ID: {{product.display_id}}</p>
+          {% if product.discount %}
+            <p class="price">
+              <s>{{product.price}}</s>
+              <span class="sell-price">{{product.sell_price}}Р</span>
+            </p>
+            <span class="badge bg-warning text-dark">Скидка {{product.discount}}%</span>
+          {% else %}
+            <p class="price">{{product.price}}Р</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<div class="row mt-4">
+  <div class="col-md-12">
+    <a href="{% url 'goods:add_to_cart' product.id %}" class="btn btn-primary product-cart">В корзину</a>
+  </div>
+</div>
+{%endblock%}

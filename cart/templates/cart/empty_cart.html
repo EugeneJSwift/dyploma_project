@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+{%block nav-bar%}
+                        <a class="nav-link" aria-current="page" href="{% url "main:index" %}">Plumber's goods</a>
+                        <a class="nav-link" href="{%url "goods:catalog_category"%}">Каталог</a>
+                        <a class="nav-link acative" href="{%url 'cart:cart'%}">Корзина</a>
+                        <a class="nav-link" href="{% url "main:about" %}">Информация</a>
+                        {% comment %} <a class="nav-link" href="login.html">Войти</a>
+                        <a class="nav-link" href="my_profile.html">Мой профиль</a> {% endcomment %}
+{%endblock%}
+{%block main_content%}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Ваша корзина</h2>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Название</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Количество</th>
+          <th scope="col">Сумма</th>
+          <th scope="col">Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if cart_items %}
+          {% for item in cart_items %}
+            <tr>
+              <td>{{ item.product.name }}</td>
+              <td>{{ item.product.price }} руб.</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.total_price }} руб.</td>
+              <td>
+                <button class="btn btn-sm btn-secondary">Удалить</button>
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="5" class="text-center">Ваша корзина пуста.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  
+    <div class="row mt-4">
+      <div class="col-md-6 offset-md-3 text-center">
+        <p>Итого: <span class="font-weight-bold">{{ total_price }}</span> руб.</p>
+        <button class="btn btn-primary btn-lg">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+{%endblock%}

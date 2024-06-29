@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static "/deps/css/bootstrap.min.css"%}">
+    <link rel="stylesheet" href="{% static "/deps/styles/projectcss.css" %}">
+    <link rel="stylesheet" href="{% static "/deps/styles/another.css" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "deps/images/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/images/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/images/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "deps/images/favicon/favicon.ico/site.webmanifest" %}">
+    <title>{{content}}</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url "main:index" %}"><img src="/static/deps/images/plumbers3.png"
+                        alt="plumber's goods"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        {% comment %} указать активную страницу {% endcomment %}
+                        {%block nav-bar%} {%endblock%}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <div class="col-lg-1">
+                    {%block optional%}{%endblock%}
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    {%block main_content%}
+                    {%endblock%}
+                </div>
+                  
+                {% comment %} блок рекламы {% endcomment %}
+                <div class="col-lg-3 col-md-12">
+                    <div class="row px-2">
+                        <div class="col-lg-12 left-side-bar my-2">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, consequatur inventore!
+                                Deserunt velit
+                                reiciendis maiores. Fugiat nobis libero eos maxime doloribus recusandae consequuntur
+                                dolore quidem
+                                laudantium.
+                                <a href="#">Learn more...</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-12 left-side-bar my-2">
+                            <p>Lorem ipsum, dolor sit amet consectetur doloribus recusandae consequuntur dolore quidem
+                                laudantium.
+                                <a href="#">Learn more...</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-12 left-side-bar my-2">
+                            <p>Lorem ipsum, dolor sit amet conseo eos maxime doloribus recusandae consequuntur dolore
+                                quidem
+                                laudantium.
+                                <a href="#">Learn more...</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-12 left-side-bar my-2">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, consequatur inventore!
+                                Deserunt velit
+                                reiciendis maiores. Fugiat nobusandae consequuntur dolore quidem
+                                laudantium.
+                                <a href=""><a href="#">Learn more...</a>
+                            </p></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </section>
+
+    <footer>
+        <div class="container-flu">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 links">
+                    <img style="width: 40px; margin-inline: 0.5em;" src="/static/deps/images/social/phone.png" alt="Телефонный номер">
+                    <img style="width: 40px;" src="/static/deps/images/social/tg.png" alt="Написать в телеграмм">
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <a class="btn btn-primary" href="#" role="button">Пользовательское соглашение</a>
+                    <a class="btn btn-primary" href="#" role="button">Политика конфеденциальности</a>
+                    <a class="btn btn-primary little-correct" href="#" role="button">О проекте</a>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <p> Это учебный сайт, созданный в качестве дипломного проекта 21.04.2024
+                        © 2024 Firstname LastName. PG-13
+                        Все права защищены.
+                        E-mail: student@top-academy.ru</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="{%static "deps/js/bootstrap.bundle.min.js"%}"></script>
+    <script src="{%static "deps/myjs/scripts.js"%}"></script>
+</body>
+
+</html>
